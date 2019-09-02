@@ -719,10 +719,9 @@
 	<variable name="SeekLabelVar">
 		<value condition="Player.IsTempo">[COLOR $VAR[ThemeLabelColor]]$LOCALIZE[224]:[/COLOR]$INFO[Player.Playspeed, ]</value>
 		<value condition="!String.IsEmpty(Player.SeekStepSize)">[COLOR $VAR[ThemeLabelColor]]$LOCALIZE[31046][/COLOR]$INFO[Player.SeekStepSize, ]</value>
-		<value condition="Player.Caching + !Player.Seeking + Integer.IsGreater(Player.CacheLevel,5)">$INFO[Player.CacheLevel,$LOCALIZE[15107] ,%]</value>
-		<value condition="Player.Caching + Integer.IsGreater(Player.CacheLevel,5)">[COLOR $VAR[ThemeLabelColor]]$LOCALIZE[15107][/COLOR]</value>
-		<value condition="[Player.Playing | [Player.Paused + !Player.Caching] | Player.ShowTime] + !Player.Seeking + ![Window.IsVisible(fullscreeninfo) + VideoPlayer.HasInfo + Skin.HasSetting(Enable.AddonInfo)] + ![Window.IsVisible(fullscreeninfo) + VideoPlayer.HasInfo + Skin.HasSetting(Enable.RecordingInfo) + Pvr.IsPlayingRecording]">$INFO[System.Time]$INFO[Player.FinishTime, [,]]</value>
-		<value condition="[Player.Playing | [Player.Paused + !Player.Caching] | Player.ShowTime]+ !Player.Seeking + [Window.IsVisible(fullscreeninfo) + VideoPlayer.HasInfo]">$INFO[System.Time]</value>
+		<value condition="Player.Caching + Integer.IsGreater(Player.CacheLevel,5)">$INFO[Player.CacheLevel,$LOCALIZE[15107] ,%]</value>
+		<value condition="[Window.IsVisible(fullscreeninfo) + VideoPlayer.HasInfo + [VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos)]] | [Window.IsVisible(fullscreeninfo) + VideoPlayer.HasInfo + Skin.HasSetting(Enable.AddonInfo) + ![VideoPlayer.Content(LiveTV) | Pvr.IsPlayingRecording | VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos)]] | [Window.IsVisible(fullscreeninfo) + VideoPlayer.HasInfo + Skin.HasSetting(Enable.RecordingInfo) + Pvr.IsPlayingRecording]">$INFO[System.Time]</value>
+		<value>$INFO[System.Time]$INFO[Player.FinishTime, [,]]</value>
 	</variable>
 	<variable name="OSDRightLabelVar">
 		<value condition="Player.ShowTime + !VideoPlayer.Content(livetv)">$INFO[Player.Time]$INFO[Player.TimeRemaining, / ]</value>
@@ -933,6 +932,9 @@
 		<value condition="Control.HasFocus(304) | Control.HasFocus(305)">$LOCALIZE[31479]</value>
 		<value condition="Control.HasFocus(308) | Control.HasFocus(309)">$LOCALIZE[31480]</value>
 		<value condition="Control.HasFocus(312) | Control.HasFocus(313)">$LOCALIZE[31478]</value>
+		<value condition="Container(9000).HasFocus(1)">$LOCALIZE[31325]</value>
+		<value condition="Container(9000).HasFocus(2)">$LOCALIZE[31326]</value>
+		<value condition="Container(9000).HasFocus(3)">$LOCALIZE[31327]</value>
 	</variable>
 	<variable name="centermainmenuVar">
 		<value condition="Skin.HasSetting(centermainmenu)">$LOCALIZE[31259]</value>
@@ -1387,8 +1389,8 @@
 		<value>$INFO[ListItem.AddonVersion]</value>
 	</variable>
 	<variable name="DialogSelectHeaderLabelVar">
-		<value condition="Control.HasFocus(95)">[COLOR $VAR[HighlightBarColor]]$INFO[Control.GetLabel(5)][/COLOR]</value>
-		<value condition="Control.HasFocus(97)">[COLOR $VAR[HighlightBarColor]]$INFO[Control.GetLabel(7)][/COLOR]</value>
+		<value condition="Control.HasFocus(95)">[COLOR $VAR[ThemeLabelColor]]$INFO[Control.GetLabel(5)][/COLOR]</value>
+		<value condition="Control.HasFocus(97)">[COLOR $VAR[ThemeLabelColor]]$INFO[Control.GetLabel(7)][/COLOR]</value>
 		<value>$INFO[Control.GetLabel(1)]</value>
 	</variable>
 	<variable name="EpisodeCountVar">
