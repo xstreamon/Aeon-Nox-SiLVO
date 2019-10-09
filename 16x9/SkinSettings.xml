@@ -300,6 +300,13 @@
 							<label2>[COLOR $VAR[ThemeLabelColor]]$VAR[ViewPlotLocalizeVar][/COLOR]</label2>
 							<onclick>Skin.ToggleSetting(ViewInfoPlotToggle)</onclick>
 						</control>
+						<control type="button" id="2009">
+							<include>SettingsButtonCommonValues</include>
+							<label>$LOCALIZE[31574]</label>
+							<label2>[COLOR $VAR[ThemeLabelColor]]$VAR[ViewSetPlotLocalizeVar][/COLOR]</label2>
+							<onclick>Skin.ToggleSetting(ViewSetPlotToggle)</onclick>
+							<visible>System.HasAddon(script.skin.info.service)</visible>
+						</control>
 						<control type="radiobutton" id="2000">
 							<include>SettingsButtonCommonValues</include>
 							<label>20189</label>
@@ -411,11 +418,11 @@
 							<onclick>Skin.Reset(MusicGenreFanartPath)</onclick>
 							<visible>!String.IsEmpty(Skin.String(MusicGenreFanartPath))</visible>
 						</control>
-						<control type="radiobutton" id="3006">
+						<control type="button" id="3006">
 							<include>SettingsButtonCommonValues</include>
-							<label>$LOCALIZE[31313]</label>
-							<onclick>Skin.Togglesetting(MakeItSnow)</onclick>
-							<selected>Skin.HasSetting(MakeItSnow)</selected>
+							<label>$LOCALIZE[31573]</label>
+							<label2>$VAR[SeasonsBackgroundLabelVar]</label2>
+							<onclick>$VAR[SeasonsBackgroundOnclickVar]</onclick>
 						</control>
 					</control>
 					<control type="grouplist" id="9004">
@@ -761,7 +768,7 @@
 					<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
 					<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
 					<animation effect="fade" start="100" end="0" time="0" tween="sine" easing="inout">Hidden</animation>
-					<visible>ControlGroup(9010).HasFocus() + !Window.IsActive(1140) + !Window.IsActive(1117)</visible>
+					<visible>ControlGroup(90000).HasFocus() + !Window.IsActive(1140) + !Window.IsActive(1117)</visible>
 				</control>
 			</control>
 		</control>
@@ -773,42 +780,39 @@
 			</control>
 			<include>MediaMenuPlayerControls</include>
 		</control>
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<texture colordiffuse="D9FFFFFF">black.png</texture>
+			<animation effect="fade" time="100">VisibleChange</animation>
+			<visible>!String.IsEmpty(Window(Home).Property(BusySkinBackup))</visible>
+		</control>
 		<control type="group">
 			<visible>!String.IsEmpty(Window(Home).Property(BusySkinBackup))</visible>
+			<animation type="Visible" reversible="false">
+				<effect type="zoom" start="150" end="100" center="960,540" time="250" tween="cubic" easing="out" />
+				<effect type="fade" end="100" time="100" />
+			</animation>
+			<animation type="Hidden" reversible="false">
+				<effect type="fade" start="100" end="0" time="100" delay="100" />
+				<effect type="zoom" start="100" end="130" center="960,540" time="250" tween="cubic" easing="in" />
+			</animation>
+			<left>912</left>
+			<top>492</top>
 			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture colordiffuse="D9FFFFFF">black.png</texture>
-				<animation effect="fade" time="300">VisibleChange</animation>
-				<visible>!String.IsEmpty(Window(Home).Property(BusySkinBackup))</visible>
+				<description>Busy animation</description>
+				<width>96</width>
+				<height>96</height>
+				<texture colordiffuse="$VAR[ThemeLabelColor]">android/spinner_48_inner_holo.png</texture>
+				<aspectratio>keep</aspectratio>
+				<animation effect="rotate" start="0" end="360" center="auto" time="2000" loop="true" condition="true">Conditional</animation>
 			</control>
-			<control type="group">
-				<visible>!String.IsEmpty(Window(Home).Property(BusySkinBackup))</visible>
-				<animation type="Visible" reversible="false">
-					<effect type="zoom" start="150" end="100" center="960,540" time="250" tween="cubic" easing="out" />
-					<effect type="fade" end="100" time="100" />
-				</animation>
-				<animation type="Hidden" reversible="false">
-					<effect type="fade" start="100" end="0" time="100" delay="100" />
-					<effect type="zoom" start="100" end="130" center="960,540" time="250" tween="cubic" easing="in" />
-				</animation>
-				<left>912</left>
-				<top>492</top>
-				<control type="image">
-					<description>Busy animation</description>
-					<width>96</width>
-					<height>96</height>
-					<texture colordiffuse="$VAR[ThemeLabelColor]">android/spinner_48_inner_holo.png</texture>
-					<aspectratio>keep</aspectratio>
-					<animation effect="rotate" start="0" end="360" center="auto" time="2000" loop="true" condition="true">Conditional</animation>
-				</control>
-				<control type="image">
-					<description>Busy animation</description>
-					<width>96</width>
-					<height>96</height>
-					<texture colordiffuse="$VAR[ThemeLabelColor]">android/spinner_48_outer_holo.png</texture>
-					<aspectratio>keep</aspectratio>
-					<animation effect="rotate" start="360" end="0" center="auto" time="2000" loop="true" condition="true">Conditional</animation>
-				</control>
+			<control type="image">
+				<description>Busy animation</description>
+				<width>96</width>
+				<height>96</height>
+				<texture colordiffuse="$VAR[ThemeLabelColor]">android/spinner_48_outer_holo.png</texture>
+				<aspectratio>keep</aspectratio>
+				<animation effect="rotate" start="360" end="0" center="auto" time="2000" loop="true" condition="true">Conditional</animation>
 			</control>
 		</control>
 	</controls>

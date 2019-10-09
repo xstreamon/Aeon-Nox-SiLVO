@@ -2292,12 +2292,31 @@ msgctxt "#31568"
 msgid "Change settings"
 msgstr ""
 
-#: /16x9/SkinSettings.xml
 msgctxt "#31569"
 msgid "Backup & Restore"
 msgstr ""
 
-# empty strings from id 31569 to 31600
+msgctxt "#31570"
+msgid "Hide Channels"
+msgstr ""
+
+msgctxt "#31571"
+msgid "Show plots in set"
+msgstr ""
+
+msgctxt "#31572"
+msgid "Choose the preferred way to display movie set plot. All plots of movies in the set or the summary if available."
+msgstr ""
+
+msgctxt "#31573"
+msgid "Seasons falling"
+msgstr ""
+
+msgctxt "#31574"
+msgid "Preferred plot for movie sets"
+msgstr ""
+
+# empty strings from id 31575 to 31600
 msgctxt "#31601"
 msgid "Show discart in movie information"
 msgstr ""
