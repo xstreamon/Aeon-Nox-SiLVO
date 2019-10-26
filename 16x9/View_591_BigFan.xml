@@ -123,7 +123,7 @@
 					<top>1000</top>
 					<width>1305</width>
 					<height>30</height>
-					<label>$VAR[MovieSetGenreVar]</label>
+					<label>$INFO[Window(Home).Property(SkinInfo.Set.Movies.Genre)]</label>
 					<font>font13_bold</font>
 					<textcolor>grey</textcolor>
 					<textoffsetx>30</textoffsetx>
@@ -171,7 +171,7 @@
 						<height>30</height>
 						<font>font13_bold</font>
 						<textcolor>grey</textcolor>
-						<label>$VAR[MovieSetGenreVar]</label>
+						<label>$INFO[Window(Home).Property(SkinInfo.Set.Movies.Genre)]</label>
 						<textoffsetx>30</textoffsetx>
 						<visible>!Skin.HasSetting(EnableBigFanPlot)</visible>
 					</control>
