@@ -12,27 +12,13 @@
 		<control type="group">
 			<include>WindowOpenCloseAnimation</include>
 			<control type="group">
-				<top>30</top>
-				<control type="image">
-					<left>51</left>
-					<width>1818</width>
-					<height>965</height>
-					<texture colordiffuse="C4FFFFFF" border="40">listpanel_back.png</texture>
-				</control>
-				<control type="image">
-					<left>436</left>
-					<top>32</top>
-					<width>1</width>
-					<height>900</height>
-					<texture colordiffuse="$VAR[ThemeLabelColor]">separator_vertical.png</texture>
-					<animation effect="slide" end="90" condition="Window.IsActive(profiles)">Conditional</animation>
-					<animation effect="slide" end="275" condition="Window.IsActive(script-skinshortcuts.xml) + String.IsEmpty(Window(Home).Property(skinshortcuts-management-widget))">Conditional</animation>
-				</control>
+				<top>59</top>
+				<include>SystemPanel</include>
 				<control type="list" id="9000">
 					<left>82</left>
 					<top>32</top>
 					<width>356</width>
-					<height>900</height>
+					<height>810</height>
 					<onleft condition="Control.IsVisible(990)">SetProperty(MediaMenu,True,Home)</onleft>
 					<onleft condition="Control.IsVisible(990)">SetFocus(990)</onleft>
 					<onright>50</onright>
@@ -100,8 +86,8 @@
 					<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
 				</control>
 				<control type="image">
-					<left>50</left>
-					<top>955</top>
+					<left>60</left>
+					<top>875</top>
 					<width>400</width>
 					<height>130</height>
 					<texture>aeon-nox-logo.png</texture>
@@ -119,10 +105,10 @@
 			</control>
 			<control type="group">
 				<left>438</left>
-				<top>62</top>
+				<top>90</top>
 				<control type="panel" id="50">
 					<width>1401</width>
-					<height>740</height>
+					<height>660</height>
 					<pagecontrol>61</pagecontrol>
 					<onleft>9000</onleft>
 					<onright>61</onright>
@@ -132,7 +118,7 @@
 					<preloaditems>2</preloaditems>
 					<animation effect="fade" time="200">VisibleChange</animation>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
-					<itemlayout width="200" height="370" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
+					<itemlayout width="200" height="330" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
 						<control type="image">
 							<width>200</width>
 							<height>300</height>
@@ -142,7 +128,7 @@
 							<bordersize>1</bordersize>
 						</control>
 						<control type="label">
-							<top>305</top>
+							<top>300</top>
 							<width>200</width>
 							<height>30</height>
 							<font>font12</font>
@@ -150,17 +136,8 @@
 							<textoffsetx>5</textoffsetx>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
-						<control type="label">
-							<top>335</top>
-							<width>200</width>
-							<height>30</height>
-							<font>font12</font>
-							<align>center</align>
-							<textoffsetx>5</textoffsetx>
-							<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Rating]</label>
-						</control>
 					</itemlayout>
-					<focusedlayout width="200" height="370" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
+					<focusedlayout width="200" height="330" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
 						<control type="group">
 							<animation type="Focus">
 								<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
@@ -174,7 +151,7 @@
 								<bordersize>4</bordersize>
 							</control>
 							<control type="label">
-								<top>305</top>
+								<top>300</top>
 								<width>200</width>
 								<height>30</height>
 								<font>font12</font>
@@ -183,21 +160,10 @@
 								<textcolor>$VAR[ThemeLabelColor]</textcolor>
 								<label>$INFO[ListItem.Label]</label>
 							</control>
-							<control type="label">
-								<top>335</top>
-								<width>200</width>
-								<height>30</height>
-								<font>font12</font>
-								<align>center</align>
-								<textoffsetx>5</textoffsetx>
-								<textcolor>$VAR[ThemeLabelColor]</textcolor>
-								<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Rating]</label>
-							</control>
 						</control>
 					</focusedlayout>
-					<itemlayout width="280.2" height="246.66" condition="Container.Content(episodes)">
+					<itemlayout width="280.2" height="220" condition="Container.Content(episodes)">
 						<control type="image">
-							<top>1</top>
 							<width>280.2</width>
 							<height>186.8</height>
 							<aspectratio>scale</aspectratio>
@@ -212,25 +178,15 @@
 							<font>font12</font>
 							<align>center</align>
 							<textoffsetx>5</textoffsetx>
-							<label>$INFO[ListItem.TvShowTitle]</label>
-						</control>
-						<control type="label">
-							<top>218</top>
-							<width>280.2</width>
-							<height>30</height>
-							<font>font12</font>
-							<align>center</align>
-							<textoffsetx>5</textoffsetx>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout width="280.2" height="246.66" condition="Container.Content(episodes)">
+					<focusedlayout width="280.2" height="220" condition="Container.Content(episodes)">
 						<control type="group">
 							<animation type="Focus">
 								<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
 							</animation>
 							<control type="image">
-								<top>1</top>
 								<width>280.2</width>
 								<height>186.8</height>
 								<aspectratio>scale</aspectratio>
@@ -246,21 +202,11 @@
 								<align>center</align>
 								<textoffsetx>5</textoffsetx>
 								<textcolor>$VAR[ThemeLabelColor]</textcolor>
-								<label>$INFO[ListItem.TvShowTitle]</label>
-							</control>
-							<control type="label">
-								<top>218</top>
-								<width>280.2</width>
-								<height>30</height>
-								<font>font12</font>
-								<align>center</align>
-								<textoffsetx>5</textoffsetx>
-								<textcolor>$VAR[ThemeLabelColor]</textcolor>
 								<label>$INFO[ListItem.Label]</label>
 							</control>
 						</control>
 					</focusedlayout>
-					<itemlayout width="280.2" height="370" condition="Container.Content(artists) | Container.Content(albums)">
+					<itemlayout width="280.2" height="330" condition="Container.Content(artists) | Container.Content(albums)">
 						<control type="image">
 							<width>280.2</width>
 							<height>280.2</height>
@@ -271,26 +217,25 @@
 							<colordiffuse>BAffffff</colordiffuse>
 						</control>
 						<control type="label">
-							<top>285</top>
+							<top>279</top>
 							<width>280.2</width>
 							<height>26</height>
 							<font>font12</font>
 							<align>center</align>
 							<textoffsetx>5</textoffsetx>
 							<label>$INFO[ListItem.Artist]</label>
-							<animation effect="slide" end="0,30" condition="Container.Content(albums)">Conditional</animation>
 						</control>
 						<control type="label">
-							<top>285</top>
+							<top>305</top>
 							<width>280.2</width>
 							<height>26</height>
 							<font>font12</font>
 							<align>center</align>
 							<textoffsetx>5</textoffsetx>
-							<label>$INFO[ListItem.Album]</label>
+							<label>[UPPERCASE]$INFO[ListItem.Album][/UPPERCASE]</label>
 						</control>
 						<control type="label">
-							<top>315</top>
+							<top>304</top>
 							<width>280.2</width>
 							<height>26</height>
 							<font>font12</font>
@@ -300,7 +245,7 @@
 							<visible>!String.IsEmpty(ListItem.Property(Artist_YearsActive))</visible>
 						</control>
 						<control type="label">
-							<top>315</top>
+							<top>304</top>
 							<width>280.2</width>
 							<height>26</height>
 							<font>font12</font>
@@ -310,7 +255,7 @@
 							<visible>String.IsEmpty(ListItem.Property(Artist_YearsActive))</visible>
 						</control>
 					</itemlayout>
-					<focusedlayout width="280.2" height="370" condition="Container.Content(artists) | Container.Content(albums)">
+					<focusedlayout width="280.2" height="330" condition="Container.Content(artists) | Container.Content(albums)">
 						<control type="group">
 							<animation type="Focus">
 								<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
@@ -324,104 +269,7 @@
 								<bordersize>4</bordersize>
 							</control>
 							<control type="label">
-								<top>285</top>
-								<width>280.2</width>
-								<height>26</height>
-								<font>font13</font>
-								<align>center</align>
-								<textoffsetx>5</textoffsetx>
-								<textcolor>$VAR[ThemeLabelColor]</textcolor>
-								<label>$INFO[ListItem.Artist]</label>
-								<animation effect="slide" end="0,30" condition="Container.Content(albums)">Conditional</animation>
-							</control>
-							<control type="label">
-								<top>285</top>
-								<width>280.2</width>
-								<height>26</height>
-								<font>font13</font>
-								<align>center</align>
-								<textoffsetx>5</textoffsetx>
-								<textcolor>$VAR[ThemeLabelColor]</textcolor>
-								<label>$INFO[ListItem.Album]</label>
-							</control>
-							<control type="label">
-								<top>315</top>
-								<width>280.2</width>
-								<height>26</height>
-								<font>font13</font>
-								<align>center</align>
-								<textoffsetx>5</textoffsetx>
-								<textcolor>$VAR[ThemeLabelColor]</textcolor>
-								<label>$INFO[ListItem.Property(Artist_YearsActive)]</label>
-								<visible>!String.IsEmpty(ListItem.Property(Artist_YearsActive))</visible>
-							</control>
-							<control type="label">
-								<top>315</top>
-								<width>280.2</width>
-								<height>26</height>
-								<font>font13</font>
-								<align>center</align>
-								<textoffsetx>5</textoffsetx>
-								<textcolor>$VAR[ThemeLabelColor]</textcolor>
-								<label>$INFO[ListItem.Property(Artist_Formed)]</label>
-								<visible>String.IsEmpty(ListItem.Property(Artist_YearsActive))</visible>
-							</control>
-						</control>
-					</focusedlayout>
-					<itemlayout width="280.2" height="370" condition="Container.Content(songs) | Container.Content(livetv)">
-						<control type="image">
-							<width>280.2</width>
-							<height>280.2</height>
-							<aspectratio>keep</aspectratio>
-							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
-							<bordersize>1</bordersize>
-							<colordiffuse>BAffffff</colordiffuse>
-						</control>
-						<control type="label">
-							<top>285</top>
-							<width>280.2</width>
-							<height>26</height>
-							<font>font12</font>
-							<align>center</align>
-							<textoffsetx>5</textoffsetx>
-							<label>$INFO[ListItem.Artist]</label>
-						</control>
-						<control type="label">
-							<top>285</top>
-							<width>280.2</width>
-							<height>26</height>
-							<font>font12</font>
-							<align>center</align>
-							<textoffsetx>5</textoffsetx>
-							<label>$INFO[ListItem.Property(ChannelName)]</label>
-							<visible>Container.Content(LiveTV)</visible>
-						</control>
-						<control type="label">
-							<top>315</top>
-							<width>280.2</width>
-							<height>26</height>
-							<font>font12</font>
-							<align>center</align>
-							<textoffsetx>5</textoffsetx>
-							<label>$INFO[ListItem.Tracknumber,,. ]$INFO[ListItem.Label]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout width="280.2" height="370" condition="Container.Content(songs) | Container.Content(livetv)">
-						<control type="group">
-							<animation type="Focus">
-								<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
-							</animation>
-							<control type="image">
-								<width>280.2</width>
-								<height>280.2</height>
-								<aspectratio>keep</aspectratio>
-								<texture background="true">$INFO[ListItem.Icon]</texture>
-								<bordertexture colordiffuse="$VAR[ThemeLabelColor]" border="4">thumbs/thumbnail_focused.png</bordertexture>
-								<bordersize>4</bordersize>
-							</control>
-							<control type="label">
-								<top>285</top>
+								<top>279</top>
 								<width>280.2</width>
 								<height>26</height>
 								<font>font12</font>
@@ -431,7 +279,103 @@
 								<label>$INFO[ListItem.Artist]</label>
 							</control>
 							<control type="label">
-								<top>285</top>
+								<top>305</top>
+								<width>280.2</width>
+								<height>26</height>
+								<font>font12</font>
+								<align>center</align>
+								<textoffsetx>5</textoffsetx>
+								<textcolor>$VAR[ThemeLabelColor]</textcolor>
+								<label>[UPPERCASE]$INFO[ListItem.Album][/UPPERCASE]</label>
+							</control>
+							<control type="label">
+								<top>304</top>
+								<width>280.2</width>
+								<height>26</height>
+								<font>font12</font>
+								<align>center</align>
+								<textoffsetx>5</textoffsetx>
+								<textcolor>$VAR[ThemeLabelColor]</textcolor>
+								<label>$INFO[ListItem.Property(Artist_YearsActive)]</label>
+								<visible>!String.IsEmpty(ListItem.Property(Artist_YearsActive))</visible>
+							</control>
+							<control type="label">
+								<top>304</top>
+								<width>280.2</width>
+								<height>26</height>
+								<font>font12</font>
+								<align>center</align>
+								<textoffsetx>5</textoffsetx>
+								<textcolor>$VAR[ThemeLabelColor]</textcolor>
+								<label>$INFO[ListItem.Property(Artist_Formed)]</label>
+								<visible>String.IsEmpty(ListItem.Property(Artist_YearsActive))</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<itemlayout width="280.2" height="330" condition="Container.Content(songs) | Container.Content(livetv)">
+						<control type="image">
+							<width>280.2</width>
+							<height>280.2</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
+							<bordersize>1</bordersize>
+							<colordiffuse>BAffffff</colordiffuse>
+						</control>
+						<control type="label">
+							<top>279</top>
+							<width>280.2</width>
+							<height>26</height>
+							<font>font12</font>
+							<align>center</align>
+							<textoffsetx>5</textoffsetx>
+							<label>$INFO[ListItem.Artist]</label>
+						</control>
+						<control type="label">
+							<top>279</top>
+							<width>280.2</width>
+							<height>26</height>
+							<font>font12</font>
+							<align>center</align>
+							<textoffsetx>5</textoffsetx>
+							<label>$INFO[ListItem.Property(ChannelName)]</label>
+							<visible>Container.Content(LiveTV)</visible>
+						</control>
+						<control type="label">
+							<top>305</top>
+							<width>280.2</width>
+							<height>26</height>
+							<font>font12</font>
+							<align>center</align>
+							<textoffsetx>5</textoffsetx>
+							<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout width="280.2" height="330" condition="Container.Content(songs) | Container.Content(livetv)">
+						<control type="group">
+							<animation type="Focus">
+								<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+							</animation>
+							<control type="image">
+								<width>280.2</width>
+								<height>280.2</height>
+								<aspectratio>scale</aspectratio>
+								<texture background="true">$INFO[ListItem.Icon]</texture>
+								<bordertexture colordiffuse="$VAR[ThemeLabelColor]" border="4">thumbs/thumbnail_focused.png</bordertexture>
+								<bordersize>4</bordersize>
+							</control>
+							<control type="label">
+								<top>279</top>
+								<width>280.2</width>
+								<height>26</height>
+								<font>font12</font>
+								<align>center</align>
+								<textoffsetx>5</textoffsetx>
+								<textcolor>$VAR[ThemeLabelColor]</textcolor>
+								<label>$INFO[ListItem.Artist]</label>
+							</control>
+							<control type="label">
+								<top>279</top>
 								<width>280.2</width>
 								<height>26</height>
 								<font>font12</font>
@@ -442,18 +386,18 @@
 								<visible>Container.Content(LiveTV)</visible>
 							</control>
 							<control type="label">
-								<top>315</top>
+								<top>305</top>
 								<width>280.2</width>
 								<height>26</height>
 								<font>font12</font>
 								<align>center</align>
 								<textoffsetx>5</textoffsetx>
 								<textcolor>$VAR[ThemeLabelColor]</textcolor>
-								<label>$INFO[ListItem.Tracknumber,,. ]$INFO[ListItem.Label]</label>
+								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
 							</control>
 						</control>
 					</focusedlayout>
-					<itemlayout width="200" height="370" condition="Container.Content(actors) | Container.Content(directors)">
+					<itemlayout width="200" height="330" condition="Container.Content(actors) | Container.Content(directors)">
 						<control type="image">
 							<width>200</width>
 							<height>300</height>
@@ -472,7 +416,7 @@
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout width="200" height="370" condition="Container.Content(actors) | Container.Content(directors)">
+					<focusedlayout width="200" height="330" condition="Container.Content(actors) | Container.Content(directors)">
 						<control type="group">
 							<animation type="Focus">
 								<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
@@ -499,23 +443,14 @@
 					</focusedlayout>
 				</control>
 				<control type="group">
-					<top>750</top>
+					<top>665</top>
 					<control type="label">
 						<width>1401</width>
 						<height>40</height>
-						<label>$INFO[ListItem.Tagline]</label>
+						<label>$INFO[ListItem.Tagline]$INFO[ListItem.TvShowTitle]</label>
 						<font>font15</font>
 						<textcolor>$VAR[ThemeLabelColor]</textcolor>
 						<textoffsetx>15</textoffsetx>
-					</control>
-					<control type="label">
-						<width>1401</width>
-						<height>40</height>
-						<label>$INFO[ListItem.Tracknumber,,. ]$INFO[ListItem.Label]</label>
-						<font>font15</font>
-						<textcolor>$VAR[ThemeLabelColor]</textcolor>
-						<textoffsetx>15</textoffsetx>
-						<visible>![Container.Content(movies) | Container.Content(tvshows)]</visible>
 					</control>
 					<control type="label">
 						<width>1401</width>
@@ -527,10 +462,10 @@
 						<visible>String.IsEmpty(ListItem.Tagline)</visible>
 					</control>
 					<control type="label">
-						<width>1403</width>
+						<width>1401</width>
 						<height>40</height>
 						<align>right</align>
-						<label>$INFO[ListItem.Duration,$LOCALIZE[2050]: ]</label>
+						<label>$INFO[ListItem.Year]$INFO[ListItem.Duration, • ]</label>
 						<font>font15</font>
 						<textcolor>$VAR[ThemeLabelColor]</textcolor>
 						<textoffsetx>15</textoffsetx>
@@ -538,26 +473,23 @@
 					<control type="textbox">
 						<left>15</left>
 						<top>45</top>
-						<width>1375</width>
+						<width>1401</width>
 						<height>100</height>
+						<label>$VAR[VideoPlotVar]</label>
 						<textcolor>grey2</textcolor>
 						<font>font14_textbox</font>
-						<align>justify</align>
-						<label>$VAR[VideoPlotVar]</label>
 						<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
 					</control>
-				</control>
-				<control type="group">
-					<top>935</top>
 					<control type="grouplist">
+						<top>185</top>
 						<width>1300</width>
 						<height>90</height>
 						<align>justify</align>
 						<orientation>horizontal</orientation>
 						<visible>Container.Content(movies)</visible>
+						<include>VisibleFadeAnimation</include>
 						<control type="image">
 							<width>168</width>
-							<height>80</height>
 							<include>MediaFlagValues</include>
 							<bordersize>2</bordersize>
 							<texture>$VAR[PathFlagsStudios]$INFO[ListItem.Studio,,.png]</texture>
@@ -565,35 +497,30 @@
 						</control>
 						<control type="image">
 							<width>168</width>
-							<height>80</height>
 							<include>MediaFlagValues</include>
 							<texture>$VAR[MediaFlagsPathVar]/mpaa/$VAR[RatingFlagVar]</texture>
 							<visible>!String.IsEmpty(ListItem.MPAA)</visible>
 						</control>
 						<control type="image">
 							<width>168</width>
-							<height>80</height>
 							<include>MediaFlagValues</include>
 							<texture>$VAR[MediaFlagsPathVar]/resolution/$INFO[ListItem.VideoResolution,,.png]</texture>
 							<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
 						</control>
 						<control type="image">
 							<width>168</width>
-							<height>80</height>
 							<include>MediaFlagValues</include>
 							<texture>$VAR[MediaFlagsPathVar]/videocodec/$VAR[SourceFlagVar]</texture>
 							<visible>!String.IsEmpty(ListItem.VideoCodec)</visible>
 						</control>
 						<control type="image">
 							<width>168</width>
-							<height>80</height>
 							<include>MediaFlagValues</include>
 							<texture>$VAR[MediaFlagsPathVar]/audiocodec/$VAR[AudioCodecFlagVar]</texture>
 							<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
 						</control>
 						<control type="image">
 							<width>168</width>
-							<height>80</height>
 							<include>MediaFlagValues</include>
 							<texture>$VAR[MediaFlagsPathVar]/audiochannels/$INFO[ListItem.AudioChannels,,.png]</texture>
 							<visible>!String.IsEmpty(ListItem.AudioChannels)</visible>
@@ -601,10 +528,12 @@
 					</control>
 					<control type="grouplist">
 						<left>40</left>
+						<top>185</top>
 						<width>1300</width>
 						<height>90</height>
 						<orientation>horizontal</orientation>
 						<visible>Container.Content(tvshows)</visible>
+						<include>VisibleFadeAnimation</include>
 						<control type="image">
 							<width>168</width>
 							<include>MediaFlagValues</include>
@@ -620,11 +549,13 @@
 						</control>
 					</control>
 					<control type="grouplist">
+						<top>185</top>
 						<width>1300</width>
 						<height>90</height>
 						<align>justify</align>
 						<orientation>horizontal</orientation>
 						<visible>Container.Content(episodes)</visible>
+						<include>VisibleFadeAnimation</include>
 						<control type="image">
 							<width>168</width>
 							<include>MediaFlagValues</include>
