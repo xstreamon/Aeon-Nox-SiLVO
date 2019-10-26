@@ -46,7 +46,7 @@
 						<control type="label">
 							<width>auto</width>
 							<height>100</height>
-							<font>font60</font>
+							<font>font65</font>
 							<textcolor>$VAR[ThemeLabelColor]</textcolor>
 							<label>$INFO[VideoPlayer.ChannelNumberLabel]</label>
 							<scroll>true</scroll>
@@ -54,7 +54,7 @@
 						<control type="label">
 							<width>auto</width>
 							<height>100</height>
-							<font>font60</font>
+							<font>font65</font>
 							<textcolor>$VAR[ThemeLabelColor]</textcolor>
 							<label>$INFO[VideoPlayer.ChannelName]</label>
 							<scroll>true</scroll>
@@ -153,7 +153,8 @@
 						<font>font16</font>
 						<textcolor>white2</textcolor>
 						<align>right</align>
-						<label>$VAR[PlayerTimeRemainingAltVar,+,  ]$INFO[VideoPlayer.EndTime]</label>
+						<label>$INFO[VideoPlayer.EndTime]</label>
+						<!-- <label>$VAR[PlayerTimeRemainingAltVar,+,  ]$INFO[VideoPlayer.EndTime]</label> -->
 					</control>
 					<control type="group">
 						<left>330</left>
@@ -245,7 +246,7 @@
 					<top>875</top>
 					<!-- Yes Weather -->
 					<control type="group">
-						<visible>String.IsEmpty(Weather.IsFetched)</visible>
+						<visible>String.IsEmpty(Weather.IsFetched) + Skin.HasSetting(infobar_hideweatherinfo)</visible>
 						<control type="label">
 							<top>10</top>
 							<width>300</width>
@@ -253,9 +254,10 @@
 							<align>center</align>
 							<font>font24_bold</font>
 							<textcolor>$VAR[ThemeLabelColor]</textcolor>
-							<label>$INFO[System.Date]</label>
+							<label>$INFO[System.Date(dd mm yyyy)]</label>
 						</control>
 						<control type="label">
+							<visible>Skin.HasSetting(infobar_hideweatherinfo)</visible>
 							<top>40</top>
 							<width>300</width>
 							<height>30</height>
@@ -265,9 +267,9 @@
 							<label>$INFO[Weather.Temperature]$INFO[Weather.Conditions,  ,]</label>
 						</control>
 					</control>
-					<!-- No Weather -->
+					<!-- No Weather availible -->
 					<control type="group">
-						<visible>!String.IsEmpty(Weather.IsFetched)</visible>
+						<visible>!String.IsEmpty(Weather.IsFetched) + Skin.HasSetting(infobar_hideweatherinfo)</visible>
 						<control type="label">
 							<top>20</top>
 							<width>300</width>
@@ -275,16 +277,41 @@
 							<align>center</align>
 							<font>font24_bold</font>
 							<textcolor>$VAR[ThemeLabelColor]</textcolor>
-							<label>$INFO[System.Date]</label>
+							<label>$INFO[System.Date(dd mm yyyy)]</label>
 						</control>
 					</control>
 					<!-- Time -->
 					<control type="label">
+						<visible>Skin.HasSetting(infobar_hideweatherinfo)</visible>
 						<top>50</top>
 						<width>300</width>
 						<height>100</height>
 						<align>center</align>
-						<font>font60</font>
+						<font>font65</font>
+						<textcolor>white2</textcolor>
+						<label>$INFO[System.Time]</label>
+					</control>
+										<!-- No Weather selectet-->
+					<control type="group">
+						<visible>!Skin.HasSetting(infobar_hideweatherinfo)</visible>
+						<control type="label">
+							<top>20</top>
+							<width>300</width>
+							<height>30</height>
+							<align>center</align>
+							<font>font24_bold</font>
+							<textcolor>$VAR[ThemeLabelColor]</textcolor>
+							<label>$INFO[System.Date(dd mm yyyy)]</label>
+						</control>
+					</control>
+					<!-- Time -->
+					<control type="label">
+					<visible>!Skin.HasSetting(infobar_hideweatherinfo)</visible>
+						<top>50</top>
+						<width>300</width>
+						<height>100</height>
+						<align>center</align>
+						<font>font65</font>
 						<textcolor>white2</textcolor>
 						<label>$INFO[System.Time]</label>
 					</control>
