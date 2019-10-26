@@ -254,7 +254,7 @@
 							<align>center</align>
 							<font>font24_bold</font>
 							<textcolor>$VAR[ThemeLabelColor]</textcolor>
-							<label>$INFO[System.Date(dd mm yyyy)]</label>
+							<label>$INFO[System.Date(dd:mm:yyyy)]</label>
 						</control>
 						<control type="label">
 							<visible>Skin.HasSetting(infobar_hideweatherinfo)</visible>
@@ -277,7 +277,7 @@
 							<align>center</align>
 							<font>font24_bold</font>
 							<textcolor>$VAR[ThemeLabelColor]</textcolor>
-							<label>$INFO[System.Date(dd mm yyyy)]</label>
+							<label>$INFO[System.Date(dd:mm:yyyy)]</label>
 						</control>
 					</control>
 					<!-- Time -->
@@ -291,7 +291,7 @@
 						<textcolor>white2</textcolor>
 						<label>$INFO[System.Time]</label>
 					</control>
-										<!-- No Weather selectet-->
+					<!-- No Weather selectet-->
 					<control type="group">
 						<visible>!Skin.HasSetting(infobar_hideweatherinfo)</visible>
 						<control type="label">
@@ -301,7 +301,7 @@
 							<align>center</align>
 							<font>font24_bold</font>
 							<textcolor>$VAR[ThemeLabelColor]</textcolor>
-							<label>$INFO[System.Date(dd mm yyyy)]</label>
+							<label>$INFO[System.Date(dd:mm:yyyy)]</label>
 						</control>
 					</control>
 					<!-- Time -->
