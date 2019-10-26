@@ -513,6 +513,7 @@
 			<selected>Skin.HasSetting(nohighlist)</selected>
 			<include>ReloadWindowOnClick</include>
 			<visible>![Control.IsVisible(501) + String.Contains(Container.FolderPath,plugin.program.advanced.launcher)]</visible>
+			<visible>!Window.IsActive(music)</visible>
 		</control>
 		<control type="radiobutton" id="1518">
 			<description>LowList Toggle</description>
@@ -535,7 +536,7 @@
 			<label>$LOCALIZE[207]</label>
 			<onclick>Skin.ToggleSetting(Enable.LowListMoviePlot)</onclick>
 			<selected>Skin.HasSetting(Enable.LowListMoviePlot)</selected>
-			<visible>Skin.HasSetting(nohighlist) + Container.Content(movies)</visible>
+			<visible>Skin.HasSetting(nohighlist) + [Container.Content(movies) | Container.Content(sets)]</visible>
 		</control>
 		<control type="radiobutton" id="1512">
 			<include>ButtonCommonValues</include>
