@@ -3388,7 +3388,7 @@
 			<control type="image">
 				<left>17</left>
 				<width>1885</width>
-				<height>720</height>
+				<height>780</height>
 				<texture border="40">dialogs/default/bg.png</texture>
 				<animation effect="fade" end="85" condition="true">Conditional</animation>
 				<visible>[String.IsEmpty(VideoPlayer.PlotOutline) | String.IsEqual(VideoPlayer.PlotOutline,N/A)] | String.IsEmpty(Window(fullscreeninfo).Property(LiveTVFullPlot))</visible>
