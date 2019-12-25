@@ -3396,7 +3396,7 @@
 			<control type="grouplist">
 				<top>50</top>
 				<left>57</left>
-				<height>650</height>
+				<height>710</height>
 				<width>1805</width>
 				<itemgap>10</itemgap>
 				<control type="label">
@@ -3480,7 +3480,7 @@
 					</control>
 					<control type="textbox">
 						<width>1805</width>
-						<height>774</height>
+						<height>834</height>
 						<label>$INFO[VideoPlayer.Plot]</label>
 						<autoscroll delay="6000" time="3000" repeat="6000">true</autoscroll>
 						<visible>String.IsEmpty(Window(fullscreeninfo).Property(LiveTVFullPlot))</visible>
@@ -3504,7 +3504,7 @@
 					</control>
 					<control type="textbox">
 						<width>1805</width>
-						<height>774</height>
+						<height>834</height>
 						<label>$INFO[VideoPlayer.NextPlot]</label>
 						<autoscroll delay="6000" time="3000" repeat="6000">true</autoscroll>
 						<visible>String.IsEmpty(Window(fullscreeninfo).Property(LiveTVFullPlot))</visible>
