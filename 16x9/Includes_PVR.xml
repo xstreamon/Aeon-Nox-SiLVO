@@ -126,11 +126,11 @@
 					<control type="grouplist">
 						<left>330</left>
 						<top>895</top>
-						<width>920</width>
+						<width>1050</width>
 						<itemgap>20</itemgap>
 						<orientation>horizontal</orientation>
 						<control type="label">
-							<width>150</width>
+							<width>110</width>
 							<height>38</height>
 							<font>font16</font>
 							<label>$INFO[VideoPlayer.StartTime]</label>
