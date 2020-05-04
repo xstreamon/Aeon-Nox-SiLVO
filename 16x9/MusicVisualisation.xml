@@ -73,6 +73,7 @@
 			<include>HiddenObject</include>
 			<imagepath background="true">$INFO[Player.Art(thumb)]</imagepath>
 		</control>
+		<include condition="!System.HasAddon(script.grab.fanart)">MusicVizFanartLists</include>
 		<control type="visualisation" id="2">
 			<include>FullscreenDimensions</include>
 			<visible>!Skin.HasSetting(hidevizbehindfanart) + Player.HasAudio + ![String.IsEqual(Visualisation.Name,waveform) | String.Contains(Visualisation.Name,spectrum)]</visible>
@@ -83,13 +84,21 @@
 			<include>SettingsFadeAnimation</include>
 			<animation effect="fade" time="600">WindowOpen</animation>
 			<animation effect="fade" time="600">WindowClose</animation>
+			<include condition="Skin.HasSetting(Enable.AnimatedBackgrounds)">AnimatedBackgroundAnimation</include>
 			<control type="multiimage" id="90300">
-				<include condition="Skin.HasSetting(Enable.AnimatedBackgrounds)">AnimatedBackgroundAnimation</include>
 				<fadetime>2000</fadetime>
-				<aspectratio>scale</aspectratio>
+				<aspectratio>keep</aspectratio>
 				<include>MultiImageTime</include>
 				<imagepath background="true">$VAR[VizBackgroundVar]</imagepath>
 				<animation effect="fade" start="100" end="20" time="0" condition="![String.IsEqual(Visualisation.Name,waveform) | String.Contains(Visualisation.Name,spectrum) | String.IsEmpty(Visualisation.Name)] + !Skin.HasSetting(HideVisualizationFanart)">Conditional</animation>
+				<visible>!Control.IsVisible(90400)</visible>
+			</control>
+			<control type="image" id="90400">
+				<fadetime>2000</fadetime>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow.Image)]</texture>
+				<animation effect="fade" start="100" end="20" time="0" condition="![String.IsEqual(Visualisation.Name,waveform) | String.Contains(Visualisation.Name,spectrum) | String.IsEmpty(Visualisation.Name)] + !Skin.HasSetting(HideVisualizationFanart)">Conditional</animation>
+				<visible>String.IsEqual(Skin.String(Viz.Background),3) + !String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.Image))</visible>
 			</control>
 		</control>
 		<control type="group">
@@ -166,7 +175,7 @@
 			<visible>Skin.HasSetting(BigAssLabel)</visible>
 			<animation effect="rotate" tween="cubic" time="720" center="auto" end="90" condition="true">Conditonal</animation>
 		</control>
-		<include condition="Skin.HasSetting(MakeItSnow)">SnowBackground</include>
+		<include condition="!String.IsEmpty(Skin.String(SeasonsBackground))">SnowBackground</include>
 		<control type="group">
 			<animation type="WindowOpen" reversible="false">
 				<effect type="slide" start="0,-540" end="0" tween="cubic" easing="inout" time="720" />
