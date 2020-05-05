@@ -22,8 +22,8 @@
 		<source>https://github.com/Grabber66/skin.aeon.nox.pvr</source>
 		<news>[I][COLOR FFFF9800]v7.0.9[/COLOR][/I][CR]- Add music playlist contents for List view[CR]- Fix CinemaVision causing focus issue[CR]- Add Artist Slideshow 3.0 support[CR][CR][B]All updates may contain various changes and/or improvements[/B][CR]For a more complete list visit:[CR][I][COLOR FFFF9800]https://github.com/mikesilvo164/Aeon-Nox-SiLVO/commits/master[/COLOR][/I]</news>
 		<assets>
-			<icon>resources/images/icon.png</icon>
-			<fanart>resources/images/fanart.jpg</fanart>
+			<icon>resources/icon.png</icon>
+			<fanart>resources/fanart.jpg</fanart>
 		</assets>
 	</extension>
 </addon>
